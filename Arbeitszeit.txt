@@ -1,0 +1,2 @@
+Datum       Dauer       Art:
+5.4.2014    2 std       Einarbeitung, erste Schritte
