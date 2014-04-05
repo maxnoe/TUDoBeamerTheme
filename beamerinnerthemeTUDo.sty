@@ -1,0 +1,34 @@
+\mode<presentation>
+
+% Title page
+
+\defbeamertemplate*{title page}{TUDo}[1][]
+{
+    \begin{beamercolorbox}{title page}
+        \begin{beamercolorbox}{institute}
+            \begin{minipage}[]{0.49\textwidth}
+                \includegraphics[height=0.75cm]{../TU-Logo.jpg}
+                \hfill
+            \end{minipage}
+            \begin{minipage}[]{0.49\textwidth}
+                \begin{flushright}
+                    \usebeamerfont{institute}\insertinstitute
+                \end{flushright}
+            \end{minipage}
+        \end{beamercolorbox}%
+    \end{beamercolorbox}%
+    \vspace{10pt}%
+    \centering
+    \inserttitlegraphic
+    \vspace{10pt}
+    \begin{beamercolorbox}{title page title}
+        \usebeamerfont{title}\inserttitle
+    \end{beamercolorbox}%
+    \vspace{10pt}
+    \begin{beamercolorbox}{author}
+        \insertauthor, \insertdate
+    \end{beamercolorbox}
+}
+
+\mode
+<all>
