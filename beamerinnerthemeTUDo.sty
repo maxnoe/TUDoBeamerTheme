@@ -4,29 +4,28 @@
 
 \defbeamertemplate*{title page}{TUDo}[1][]
 {
-    \begin{beamercolorbox}{title page}
-        \begin{beamercolorbox}{institute}
-            \begin{minipage}[]{0.49\textwidth}
-                \includegraphics[height=0.75cm]{../TU-Logo.jpg}
-                \hfill
-            \end{minipage}
-            \begin{minipage}[]{0.49\textwidth}
-                \begin{flushright}
-                    \usebeamerfont{institute}\insertinstitute
-                \end{flushright}
-            \end{minipage}
-        \end{beamercolorbox}%
-    \end{beamercolorbox}%
-    \vspace{10pt}%
-    \centering
-    \inserttitlegraphic
+    \vspace{5pt}
+    \begin{beamercolorbox}[ht=0.75cm, wd=\textwidth]{title page header}
+        \begin{beamercolorbox}[ht=0.75cm, wd=0.49\textwidth]{institute}
+            \includegraphics[height=0.75cm]{../TU-Logo.jpg}
+            \hfill
+        \end{beamercolorbox}
+        \hfill
+        \begin{beamercolorbox}[ht=0.75cm, wd=0.49\textwidth,right]{institute}
+        \vbox to 0.75cm{\vfil\usebeamerfont{institute}\insertinstitute\vfil}
+        \end{beamercolorbox}
+    \end{beamercolorbox}
     \vspace{10pt}
-    \begin{beamercolorbox}{title page title}
-        \usebeamerfont{title}\inserttitle
-    \end{beamercolorbox}%
+    \begin{beamercolorbox}[ht=0.55\textheight, wd=\textwidth, center]{title page image}
+        \inserttitlegraphic
+    \end{beamercolorbox}
     \vspace{10pt}
-    \begin{beamercolorbox}{author}
-        \insertauthor, \insertdate
+    \begin{beamercolorbox}[ht=0.1\textheight, rounded=true, center]{title page title}
+        \vbox to 0.15\textheight{\vfil\usebeamerfont{title}\inserttitle\vfil}
+    \end{beamercolorbox}
+    \vspace{5pt}
+    \begin{beamercolorbox}[ht=0.05\textheight]{author}
+        \tiny\usebeamerfont{author}\insertauthor, \usebeamerfont{date}\insertdate
     \end{beamercolorbox}
 }
 
