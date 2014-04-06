@@ -1,32 +1,27 @@
 \mode<presentation>
 
+% Blocks
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+
+% Items
+
+\setbeamertemplate{sections/subsections in toc}[square]
+
 % Title page
 
 \defbeamertemplate*{title page}{TUDo}[1][]
 {
-    \vspace{5pt}
-    \begin{beamercolorbox}[ht=0.75cm, wd=\textwidth]{title page header}
-        \begin{beamercolorbox}[ht=0.75cm, wd=0.49\textwidth]{institute}
-            \includegraphics[height=0.75cm]{../TU-Logo.jpg}
-            \hfill
-        \end{beamercolorbox}
-        \hfill
-        \begin{beamercolorbox}[ht=0.75cm, wd=0.49\textwidth,right]{institute}
-        \vbox to 0.75cm{\vfil\usebeamerfont{institute}\insertinstitute\vfil}
-        \end{beamercolorbox}
-    \end{beamercolorbox}
-    \vspace{10pt}
-    \begin{beamercolorbox}[ht=0.55\textheight, wd=\textwidth, center]{title page image}
+    \begin{beamercolorbox}[ht=0.7\textheight, wd=\textwidth, center]{title page image}
         \inserttitlegraphic
     \end{beamercolorbox}
-    \vspace{10pt}
-    \begin{beamercolorbox}[ht=0.1\textheight, rounded=true, center]{title page title}
-        \vbox to 0.15\textheight{\vfil\usebeamerfont{title}\inserttitle\vfil}
-    \end{beamercolorbox}
     \vspace{5pt}
-    \begin{beamercolorbox}[ht=0.05\textheight]{author}
-        \tiny\usebeamerfont{author}\insertauthor, \usebeamerfont{date}\insertdate
+    \hfill
+    \begin{beamercolorbox}[ht=0.2\textheight, wd=0.8\textwidth, rounded=true, center]{title page title}
+        \vbox to 0.2\textheight{\vfil\usebeamerfont{title}\inserttitle\vfil}
     \end{beamercolorbox}
+    \hfill
+    \vspace{5pt}
 }
 
 \mode

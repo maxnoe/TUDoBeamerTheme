@@ -1,3 +1,3 @@
 Datum       Dauer       Art:
 5.4.2014    4 std       Einarbeitung, erste Schritte, Titelseite
-6.4.2014    1 std       Titelseite
+6.4.2014    4 std       Titelseite, Kopfzeile, Fußzeile, Blöcke, Items, ToC
