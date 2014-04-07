@@ -3,13 +3,14 @@
 % Blocks
 
 \setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{theorems}[numbered]
 
 % Items
 
 \setbeamertemplate{sections/subsections in toc}[square]
+\setbeamertemplate{items}[square]
 
 % Title page
-
 \defbeamertemplate*{title page}{TUDo}[1][]
 {
     \begin{beamercolorbox}[ht=0.7\textheight, wd=\textwidth, center]{title page image}
@@ -22,6 +23,18 @@
     \end{beamercolorbox}
     \hfill
     \vspace{5pt}
+}
+
+\defbeamertemplate*{frametitle}{TUDo}[1][0]
+{
+    \begin{beamercolorbox}[wd=\textwidth]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle
+    \ifx\insertframesubtitle\empty
+    \else
+    \par\hspace{1pt}\usebeamerfont{framesubtitle}\insertframesubtitle
+    \fi
+    \end{beamercolorbox}
+    \vspace{-5pt}
 }
 
 \mode

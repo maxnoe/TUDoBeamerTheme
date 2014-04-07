@@ -6,7 +6,7 @@
 \defbeamertemplate*{headline}{TUDo}[1][0]
 {
     \leftskip=18pt
-    \vspace{9.3pt}
+    \vspace{13.5pt}
     \begin{beamercolorbox}[wd=4.54in, ht=0.75cm]{header}
        \begin{beamercolorbox}[ht=0.75cm, wd=0.3\textwidth]{institute}
             \includegraphics[height=0.75cm]{TU-Logo.jpg}
@@ -14,42 +14,39 @@
         \end{beamercolorbox}
         \hfill
         \begin{beamercolorbox}[ht=0.75cm, wd=0.3\textwidth,left]{section in header}
-            \vbox to 0.75cm{\vfil\small\insertsection\par\vspace{3pt}\tiny\insertsubsection\vfil}
+            \ifx\insertsubsection\empty
+            \vbox to 0.75cm{\vfil\usebeamerfont{section in head/foot}\insertsection\vfil}
+            \else
+            \vbox to 0.75cm{\vfil\usebeamerfont{section in head/foot}\insertsection
+            \par\vspace{3pt}\usebeamerfont{subsection in head/foot}\insertsubsection\vfil}
+            \fi
         \end{beamercolorbox}
         \begin{beamercolorbox}[ht=0.75cm, wd=0.2\textwidth,right]{institute}
-            \vbox to 0.75cm{\vfil\insertinstitute\vfil}
+            \vbox to 0.75cm{\vfil\usebeamerfont{institute}\insertinstitute\vfil}
         \end{beamercolorbox}
     \end{beamercolorbox}
-    \vspace{5pt}
+    \vspace{8pt}
     \ifnum\insertframenumber>0
-        \hspace{18pt}\usebeamercolor[fg]{headsepline}\rule{4.54in}{0.5pt}
+        \hspace{18pt}\usebeamercolor[fg]{headsepline}\rule{4.54in}{0.4pt}
     \fi
-    \vspace{5pt}
+    \vspace{10pt}
 }
 
-\defbeamertemplate*{frametitle}{TUDo}[1][0]
-{
-    \begin{beamercolorbox}[wd=\textwidth]{frametitle}
-    \usebeamerfont{frametitle}\insertframetitle
-    \end{beamercolorbox}
-}
-
-    
 
 \defbeamertemplate*{footline}{TUDo}[1][0]
 {
     \hspace{15pt}
     \begin{beamercolorbox}[wd=4.54in]{footline}
         \begin{beamercolorbox}[wd=2.5in, left]{author}
-            \insertauthor, \insertdate
+            \usebeamerfont{author}\insertauthor, \usebeamerfont{date}\insertdate
         \end{beamercolorbox}
         \begin{beamercolorbox}[wd=2in, right]{frame number}
             \ifnum\insertframenumber>0
-            \insertframenumber /\inserttotalframenumber
+            \usebeamerfont{page number in head/foot}\insertframenumber /\inserttotalframenumber
             \fi
         \end{beamercolorbox}
     \end{beamercolorbox}
-    \vspace{10pt}
+    \vspace{12pt}
 }
 
 \mode
