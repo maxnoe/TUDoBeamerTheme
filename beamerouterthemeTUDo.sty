@@ -1,6 +1,16 @@
+%%%%%%%%%%%%%%%%%%%%----------------------------------------%%%%%%%%%%%%%%%%%%%%
+%-------------------   LaTeX-Beamer-Theme der TU Dortmund   -------------------%
+%%%%%%%%%%%%%%%%%%%%----------------------------------------%%%%%%%%%%%%%%%%%%%%
+
+%% Erstellt von Maximilian Nöthe <maximilian.noethe@tu-dortmund.de>
+% Version 1.0 vom 16.4.2014
+
+% Vielen Dank an Carsten Raas für seine Mithilfe
+
+
 \mode<presentation>
 
-\setbeamersize{text margin left=18pt}
+\setbeamersize{text margin  left=18pt}
 \setbeamersize{text margin right=18pt}
 
 \defbeamertemplate*{headline}{TUDo}[1][0]
@@ -9,19 +19,20 @@
     \vspace{13.5pt}
     \begin{beamercolorbox}[wd=4.54in, ht=0.75cm]{header}
        \begin{beamercolorbox}[ht=0.75cm, wd=0.3\textwidth]{institute}
-            \includegraphics[height=0.75cm]{TU-Logo.jpg}
+            \includegraphics[height=0.75cm]{TUDo-Logo.jpg}
             \hfill
         \end{beamercolorbox}
         \hfill
-        \begin{beamercolorbox}[ht=0.75cm, wd=0.3\textwidth,left]{section in header}
-            \ifx\insertsubsection\empty
-            \vbox to 0.75cm{\vfil\usebeamerfont{section in head/foot}\insertsection\vfil}
-            \else
-            \vbox to 0.75cm{\vfil\usebeamerfont{section in head/foot}\insertsection
-            \par\vspace{3pt}\usebeamerfont{subsection in head/foot}\insertsubsection\vfil}
-            \fi
-        \end{beamercolorbox}
-        \begin{beamercolorbox}[ht=0.75cm, wd=0.2\textwidth,right]{institute}
+%        \begin{beamercolorbox}[ht=0.75cm, wd=0.3\textwidth,left]{section in header}
+%            \ifx\insertsubsection\empty
+%            \vbox to 0.75cm{\vfil\usebeamerfont{section in head/foot}\insertsection\vfil}
+%            \else
+%            \vbox to 0.75cm{\vfil\usebeamerfont{section in head/foot}\insertsection
+%            \par\vspace{3pt}\usebeamerfont{subsection in head/foot}\insertsubsection\vfil}
+%            \fi
+%        \end{beamercolorbox}
+%       \begin{beamercolorbox}[ht=0.75cm, wd=0.2\textwidth,right]{institute}
+        \begin{beamercolorbox}[ht=0.75cm, wd=0.3\textwidth,right]{institute}
             \vbox to 0.75cm{\vfil\usebeamerfont{institute}\insertinstitute\vfil}
         \end{beamercolorbox}
     \end{beamercolorbox}
@@ -31,7 +42,6 @@
     \fi
     \vspace{10pt}
 }
-
 
 \defbeamertemplate*{footline}{TUDo}[1][0]
 {
@@ -49,5 +59,4 @@
     \vspace{12pt}
 }
 
-\mode
-<all>
+\mode<all>
