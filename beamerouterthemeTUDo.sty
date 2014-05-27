@@ -3,7 +3,8 @@
 %%%%%%%%%%%%%%%%%%%%----------------------------------------%%%%%%%%%%%%%%%%%%%%
 
 %% Erstellt von Maximilian Nöthe <maximilian.noethe@tu-dortmund.de>
-% Version 1.01 vom 20.4.2014
+% Version 1.1 vom 27.5.2014
+% added section/subsection in footline and fixed not compiling if no title image is set
 
 % Vielen Dank an Carsten Raas für seine Mithilfe
 
@@ -18,21 +19,12 @@
     \leftskip=18pt
     \vspace{13.5pt}
     \begin{beamercolorbox}[wd=4.54in, ht=0.75cm]{header}
-       \begin{beamercolorbox}[ht=0.75cm, wd=0.3\textwidth]{institute}
+       \begin{beamercolorbox}[ht=0.75cm, wd=0.3\linewidth]{institute}
             \includegraphics[height=0.75cm]{TUDo-Logo.jpg}
             \hfill
         \end{beamercolorbox}
         \hfill
-%        \begin{beamercolorbox}[ht=0.75cm, wd=0.3\textwidth,left]{section in header}
-%            \ifx\insertsubsection\empty
-%            \vbox to 0.75cm{\vfil\usebeamerfont{section in head/foot}\insertsection\vfil}
-%            \else
-%            \vbox to 0.75cm{\vfil\usebeamerfont{section in head/foot}\insertsection
-%            \par\vspace{3pt}\usebeamerfont{subsection in head/foot}\insertsubsection\vfil}
-%            \fi
-%        \end{beamercolorbox}
-%       \begin{beamercolorbox}[ht=0.75cm, wd=0.2\textwidth,right]{institute}
-        \begin{beamercolorbox}[ht=0.75cm, wd=0.3\textwidth,right]{institute}
+        \begin{beamercolorbox}[ht=0.75cm, wd=0.3\linewidth,right]{institute}
             \vbox to 0.75cm{\vfil\usebeamerfont{institute}\insertinstitute\vfil}
         \end{beamercolorbox}
     \end{beamercolorbox}
@@ -47,10 +39,17 @@
 {
     \hspace{15pt}
     \begin{beamercolorbox}[wd=4.54in]{footline}
-        \begin{beamercolorbox}[wd=2.5in, left]{author}
+        \begin{beamercolorbox}[wd=0.3\linewidth, left]{author}
             \usebeamerfont{author}\insertauthor, \usebeamerfont{date}\insertdate
         \end{beamercolorbox}
-        \begin{beamercolorbox}[wd=2in, right]{frame number}
+        \begin{beamercolorbox}[ wd=0.5\linewidth,center]{section in header}
+            \ifx\insertsubsection\empty
+            \usebeamerfont{section in head/foot}\insertsection
+            \else
+            \usebeamerfont{section in head/foot}\insertsection: \ \usebeamerfont{subsection in head/foot}\insertsubsection
+            \fi
+        \end{beamercolorbox}
+        \begin{beamercolorbox}[wd=0.15\linewidth, right]{frame number}
             \ifnum\insertframenumber>0
             \usebeamerfont{page number in head/foot}\insertframenumber /\inserttotalframenumber
             \fi
