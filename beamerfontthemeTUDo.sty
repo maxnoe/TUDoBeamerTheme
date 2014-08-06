@@ -10,7 +10,21 @@
 
 \mode<presentation>
 
-\usepackage{helvet} 
+\ifluatex
+    \RequirePackage{fontspec}
+    \RequirePackage{amsmath}
+    \RequirePackage{amssymb}
+    \RequirePackage{unicode-math}
+    \setsansfont{Tex Gyre Heros}
+    \setmainfont{Tex Gyre Pagella}
+    \setmathfont{Tex Gyre Pagella Math}
+\else
+    \RequirePackage[utf8]{inputenc}
+    \RequirePackage[T1]{fontenc}
+    \RequirePackage{helvet} 
+\fi
+
+
 
 \setbeamerfont{author}{size=\tiny}
 %\setbeamerfont{page number in head/foot}{size=\tiny, series=\bfseries}

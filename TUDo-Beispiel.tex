@@ -1,24 +1,16 @@
 \documentclass[9pt]{beamer}
 
 \usetheme{TUDo}
+\usefonttheme[onlymath]{serif}
 
 % Sprachumgebung
 \usepackage[ngerman]{babel}
 
 
-% Encoding je nach Compiler
-\ifluatex
-\usepackage[utf8]{luainputenc}
-\else
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\fi
-
-
 % Mathematik
 \usepackage{amsmath}
-\usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{mathtools}
 \usepackage{cancel}
 
 %Links
@@ -35,7 +27,7 @@
 %Lehrstuhl/Fakultät
 \institute[Lehrstuhl\\Fakultät]{Names des Lehrstuhls /\par\smallskip\smallskip Name der Fakultät}
 %Titelgrafik 
-\titlegraphic{TUDo-Title-Pic-2.jpg}
+\titlegraphic{Bilder/TUDo-Title-Pic-2.jpg}
 
 
 \begin{document}
@@ -50,7 +42,7 @@
     Zu diesem Theme
     \begin{itemize}
         \item Die .sty-Files müssen im gleichen Verzeichnis wie die .tex liegen
-        \item Ebenso das TU-Logo und eventuelle andere Bilder 
+        \item Ebenso das mitgelieferte TU-Logo
     \end{itemize}
     Allgemein zu Beamer und Latex:
     \begin{itemize}
@@ -83,16 +75,19 @@ Dies ist ein Blindtext. Dieser Text ist nicht dafür vorgesehen, den Betrachter 
 \section{Formelsatz}
 \begin{frame}
 	\frametitle{Formelsatz}
+    \begin{equation*}
+        A \cdot \cos{\omega t}
+    \end{equation*}
 	\begin{block}{Mathematischer Formelsatz ist eine Spezialität von \LaTeX}
-		\[
+		\begin{equation*}
 		u(x,t)= 8 \frac{k_{1}^{2}e^{\alpha_{1}} + k_{2}^{2}e^{\alpha_{2}} + (k_{1}-k_{2})^{2}e^{(\alpha_{1}+ \alpha_{2})} \left[2 + \frac{1}{(k_{1} + k_{2})^{2}} ( k_{1}^{2}e^{\alpha_{1}} + k_{2}^{2}e^{\alpha_{2}}) \right]}{\left[1+e^{\alpha_{1}} + e^{\alpha_{2}} + \left(\frac{k_{1} - k_{2}}{k_{1}+k_{2}} \right)^{2} e^{\alpha_{1}+ \alpha_{2}} \right]^{2}}
-		\]
-		\[
+		\end{equation*}
+		\begin{equation*}
 			t-t_{0}=\sqrt{\frac{l}{g}}\int_{0}^{\varphi}{\frac{\mathrm{d}\psi}{\sqrt{1-k^{2}\sin^{2} {\psi}}}} = \sqrt{\frac{l}{g}} F(k,\varphi)
-		\]
-		\[
+		\end{equation*}
+		\begin{equation*}
 			\frac{\binom{\sqrt[15]{\pi}}{\infty}}{\pm G - x_{62}^{34}} = \varliminf \sum \frac{\cos \mho}{\sin \eth}
-		\]
+		\end{equation*}
 	\end{block}
 \end{frame}
 
@@ -100,39 +95,39 @@ Dies ist ein Blindtext. Dieser Text ist nicht dafür vorgesehen, den Betrachter 
 	\begin{columns}
 		\begin{column}{0.49\textwidth}
 			\begin{exampleblock}{Brüche}
-				\[\frac{2+dc}{9}\]
+				\begin{equation*}\frac{2+dc}{9}\end{equation*}
 			\end{exampleblock}
 			\begin{exampleblock}{Wurzeln}
-				\[
+				\begin{equation*}
 					\sqrt{x}
 					\quad\text{bzw.}\quad
 					\sqrt[n]{x}
-				\]
+				\end{equation*}
 			\end{exampleblock}
 			\begin{exampleblock}{Indizes \& Hochstellungen}
-				\[a_{b_c} \quad\text{und}\quad a^{2^3}\]
+				\begin{equation*}a_{b_c} \quad\text{und}\quad a^{2^3}\end{equation*}
 			\end{exampleblock}
 			\begin{exampleblock}{Summen}
-				\[\sum\limits_{i=1}^n i = \frac{n(n+1)}{2}\]
+				\begin{equation*}\sum\limits_{i=1}^n i = \frac{n(n+1)}{2}\end{equation*}
 			\end{exampleblock}
 		\end{column}
 		\begin{column}{0.49\textwidth}
 			\begin{exampleblock}{Produkte}
-				\[\prod\limits_{i=1}^{n+1}i = 1\cdot 2\cdot\ldots\cdot n\cdot (n+1)\]
+				\begin{equation*}\prod\limits_{i=1}^{n+1}i = 1\cdot 2\cdot\ldots\cdot n\cdot (n+1)\end{equation*}
 			\end{exampleblock}
 			\begin{exampleblock}{Integrale}
-				\[
+				\begin{equation*}
 					\int_0^3 x^2\,\mathrm{d}x = 9
 					\quad\text{oder}\quad
 					\int\limits_0^3 x^2 \,\mathrm{d}x = 9
-				\]
+				\end{equation*}
 			\end{exampleblock}
 			\begin{exampleblock}{Doppel- und Mehrfachintegrale}
-				\[
+				\begin{equation*}
 					\iint_a^b
 					\quad\text{oder}\quad
 					\idotsint_a^b
-				\]
+				\end{equation*}
 			\end{exampleblock}
 		\end{column}
 	\end{columns}
@@ -142,7 +137,7 @@ Dies ist ein Blindtext. Dieser Text ist nicht dafür vorgesehen, den Betrachter 
 	\begin{columns}
 		\begin{column}{0.49\textwidth}
 			\begin{exampleblock}{Limes}
-				\[\lim_{n \to \infty}\frac{1}{n}=0\]
+				\begin{equation*}\lim_{n \to \infty}\frac{1}{n}=0\end{equation*}
 			\end{exampleblock}
 			\begin{exampleblock}{Sonderzeichen}
                 \begin{align*}
@@ -162,7 +157,7 @@ Dies ist ein Blindtext. Dieser Text ist nicht dafür vorgesehen, den Betrachter 
 		\end{column}
 		\begin{column}{0.49\textwidth}
 			\begin{exampleblock}{Matrizen}
-				\[
+				\begin{equation*}
 					\left(
 						\begin{array}{ccc}
 							a_{11} & \cdots & a_{1n} \\
@@ -170,21 +165,21 @@ Dies ist ein Blindtext. Dieser Text ist nicht dafür vorgesehen, den Betrachter 
 							a_{m1} & \cdots & a_{mn}
 						\end{array}
 					\right)
-				\]
-				\[
+				\end{equation*}
+				\begin{equation*}
 					\begin{pmatrix}
 						\kappa_{11} & \cdots & \kappa_{1n} \\
 						\vdots      & \ddots & \vdots      \\
 						\kappa_{m1} & \cdots & \kappa_{mn}
 					\end{pmatrix}
-				\]
+				\end{equation*}
 			\end{exampleblock}
 			\begin{exampleblock}{Durchstreichungen}
-				\[
+				\begin{equation*}
 					\frac{13}{39} = \cancel{{\frac{13}{13}}} \cdot \frac{1}{3}
 					\quad\text{oder}\quad
 					\frac{13}{39} = \frac{\cancel{13} \cdot 1}{\cancel{13} \cdot 3}
-				\]
+				\end{equation*}
 			\end{exampleblock}
 		\end{column}
 	\end{columns}
@@ -278,9 +273,9 @@ Dies ist ein Blindtext. Dieser Text ist nicht dafür vorgesehen, den Betrachter 
         \end{itemize}
         \end{column}
         \begin{column}{0.49\textwidth}
-            \includegraphics[width=\textwidth]{./TUDo-Title-Pic-1.jpg}
+            \includegraphics[width=\textwidth]{Bilder/TUDo-Title-Pic-1.jpg}
             \vspace{5pt}
-			\includegraphics[width=\textwidth]{./TUDo-Title-Pic-2.jpg}
+			\includegraphics[width=\textwidth]{Bilder/TUDo-Title-Pic-2.jpg}
         \end{column}
     \end{columns}
 \end{frame}
@@ -294,13 +289,13 @@ Dies ist ein Blindtext. Dieser Text ist nicht dafür vorgesehen, den Betrachter 
         \end{column}
         \begin{column}{0.49\textwidth}
 					\centerline{\textit{\small Feld rechts oben}}
-				  \centerline{\includegraphics[width=0.75\textwidth]{./Pic-01.jpg}}
+				  \centerline{\includegraphics[width=0.75\textwidth]{Bilder/Pic-01.jpg}}
         \end{column}
     \end{columns}
     \medskip
     \begin{columns}[b]
       \begin{column}{0.49\textwidth}
-				\centerline{\includegraphics[width=0.75\textwidth]{./Pic-02.jpg}}
+				\centerline{\includegraphics[width=0.75\textwidth]{Bilder/Pic-02.jpg}}
 				\centerline{\textit{\small Feld links unten}}
 			\end{column}
       \begin{column}{0.49\textwidth}

@@ -14,6 +14,17 @@
 \RequirePackage{xcolor}
 \RequirePackage{enumerate}
 
+\ifluatex
+    \RequirePackage{fontspec}
+    \RequirePackage{amsmath}
+    \RequirePackage{amssymb}
+    \RequirePackage{unicode-math}
+\else   
+    \RequirePackage[utf8]{inputenc}
+    \RequirePackage[T1]{fontenc}
+\fi
+
+
 %Settings
 \useinnertheme{TUDo}
 \useoutertheme{TUDo}
