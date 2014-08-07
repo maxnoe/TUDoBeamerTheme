@@ -2,3 +2,5 @@ AlteVersionen
 logfiles
 *fuse_*
 *.swp
+*.zip
+test
