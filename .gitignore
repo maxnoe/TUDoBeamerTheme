@@ -1,6 +1,4 @@
-AlteVersionen
-logfiles
+build
 *fuse_*
 *.swp
 *.zip
-test

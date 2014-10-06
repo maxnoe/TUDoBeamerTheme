@@ -1,10 +1,14 @@
+\PassOptionsToPackage{unicode}{hyperref}
 \documentclass[9pt]{beamer}
 
 \usetheme{TUDo}
 \usefonttheme[onlymath]{serif}
 
+\usepackage{fixltx2e}
+
 % Sprachumgebung
-\usepackage[ngerman]{babel}
+\usepackage{polyglossia}
+\setmainlanguage{german}
 
 
 % Mathematik
@@ -13,8 +17,20 @@
 \usepackage{mathtools}
 \usepackage{cancel}
 
+\usepackage[
+  math-style=ISO,
+  bold-style=ISO,
+  sans-style=italic,
+  nabla=upright,
+  partial=upright,
+]{unicode-math}
+
+\usepackage{fontspec}
+\setsansfont{TeX Gyre Heros}
+
 %Links
-\usepackage[]{hyperref}
+\usepackage{hyperref}
+\usepackage{bookmark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%-------------Hier Titel/Autor/Grafik/Lehrstuhl eintragen--------------%%%%%

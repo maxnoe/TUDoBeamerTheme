@@ -1,10 +1,15 @@
-all: TUDo-Beispiel.pdf
+all: build/TUDo-Beispiel.pdf
 
-TUDo-Beispiel.pdf: TUDo-Beispiel.tex *.sty
-	lualatex TUDo-Beispiel.tex
-	lualatex TUDo-Beispiel.tex
-	mkdir -p logfiles
-	mv *.log *.aux *.nav *.out *.snm *.toc logfiles/
+TeXOptions = --interaction=nonstopmode \
+			 --halt-on-error \
+			 --output-directory=build
+
+build/TUDo-Beispiel.pdf: TUDo-Beispiel.tex *.sty | build
+	lualatex $(TeXOptions) TUDo-Beispiel.tex
+	lualatex $(TeXOptions) TUDo-Beispiel.tex
+
+build:
+	mkdir -p build
 
 clean:
-	rm -r logfiles
+	rm -r build

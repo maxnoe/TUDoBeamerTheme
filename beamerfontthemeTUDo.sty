@@ -1,30 +1,15 @@
-%%%%%%%%%%%%%%%%%%%%----------------------------------------%%%%%%%%%%%%%%%%%%%%
+%
+%%%%%%%%%%%%%%%%%%----------------------------------------%%%%%%%%%%%%%%%%%%%%
 %-------------------   LaTeX-Beamer-Theme der TU Dortmund   -------------------%
 %%%%%%%%%%%%%%%%%%%%----------------------------------------%%%%%%%%%%%%%%%%%%%%
 
 %% Erstellt von Maximilian Nöthe <maximilian.noethe@tu-dortmund.de>
-% Version 1.1 vom 27.5.2014
+% Version 1.2 vom 10.10.2014
 % added section/subsection in footline and fixed not compiling if no title image is set
 
 % Vielen Dank an Carsten Raas für seine Mithilfe
 
 \mode<presentation>
-
-\ifluatex
-    \RequirePackage{fontspec}
-    \RequirePackage{amsmath}
-    \RequirePackage{amssymb}
-    \RequirePackage{unicode-math}
-    \setsansfont{Tex Gyre Heros}
-    \setmainfont{Tex Gyre Pagella}
-    \setmathfont{Tex Gyre Pagella Math}
-\else
-    \RequirePackage[utf8]{inputenc}
-    \RequirePackage[T1]{fontenc}
-    \RequirePackage{helvet} 
-\fi
-
-
 
 \setbeamerfont{author}{size=\tiny}
 %\setbeamerfont{page number in head/foot}{size=\tiny, series=\bfseries}
