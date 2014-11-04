@@ -11,32 +11,29 @@
 
 \mode<presentation>
 
-\setbeamersize{text margin  left=18pt}
+\setbeamersize{text margin left=18pt}
 \setbeamersize{text margin right=18pt}
 
 \defbeamertemplate*{headline}{TUDo}[1][0]
-{
-    \leftskip=18pt
-    \vspace{13.5pt}
-    \begin{beamercolorbox}[wd=4.54in, ht=0.75cm]{header}
-       \begin{beamercolorbox}[ht=0.75cm, wd=0.3\linewidth]{institute}
-            \includegraphics[height=0.75cm]{TU-Logo.pdf}
-            \hfill
-        \end{beamercolorbox}
-        \hfill
-        \begin{beamercolorbox}[ht=0.75cm, wd=0.3\linewidth,right]{institute}
-            \vbox to 0.75cm{\vfil\usebeamerfont{institute}\insertinstitute\vfil}
-        \end{beamercolorbox}
-    \end{beamercolorbox}
-    \vspace{8pt}
-    \ifnum\insertframenumber>0
-        \hspace{18pt}\usebeamercolor[fg]{headsepline}\rule{4.54in}{0.4pt}
-    \fi
-    \vspace{10pt}
+{%
+  \vspace*{13.5pt}
+  \hspace*{18pt}%
+  \parbox[c][0.75cm]{0.5\linewidth}{%
+    \includegraphics[height=0.75cm]{TU-Logo.pdf}%
+  }%
+  \parbox[c][0.75cm]{0.5\linewidth}{%
+    \raggedleft\usebeamerfont{institute}\insertinstitute%
+  }%
+
+  \vspace*{8pt}
+  \ifnum\insertframenumber>0
+  \hspace*{18pt}\rule{\linewidth}{0.4pt}%
+  \fi
+  \vspace{10pt}
 }
 
 \defbeamertemplate*{footline}{TUDo}[1][0]
-{
+{%
     \hspace{15pt}
     \begin{beamercolorbox}[wd=4.54in]{footline}
         \begin{beamercolorbox}[wd=0.3\linewidth, left]{author}
