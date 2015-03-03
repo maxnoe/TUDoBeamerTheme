@@ -29,7 +29,7 @@
   \ifnum\insertframenumber>0
   \hspace*{18pt}\rule{\linewidth}{0.4pt}%
   \fi
-  \vspace{10pt}
+  \vspace{5pt}
 }
 
 \defbeamertemplate*{footline}{TUDo}[1][0]
@@ -37,18 +37,18 @@
     \hspace{15pt}
     \begin{beamercolorbox}[wd=4.54in]{footline}
         \begin{beamercolorbox}[wd=0.3\linewidth, left]{author}
-            \usebeamerfont{author}\insertauthor, \usebeamerfont{date}\insertdate
-        \end{beamercolorbox}
-        \begin{beamercolorbox}[ wd=0.5\linewidth,center]{section in header}
-            \ifx\insertsubsection\empty
-            \usebeamerfont{section in head/foot}\insertsection
-            \else
-            \usebeamerfont{section in head/foot}\insertsection: \ \usebeamerfont{subsection in head/foot}\insertsubsection
+            \usebeamerfont{author}\insertauthor, \usebeamerfont{date}\insertdate%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[ wd=0.55\linewidth,center]{section in header}
+            \ifx\insertsubsection\empty%
+            \usebeamerfont{section in head/foot}\insertsection%
+            \else%
+            \usebeamerfont{section in head/foot}\insertsection: \ \usebeamerfont{subsection in head/foot}\insertsubsection%
             \fi
-        \end{beamercolorbox}
-        \begin{beamercolorbox}[wd=0.15\linewidth, right]{frame number}
-            \ifnum\insertframenumber>0
-            \usebeamerfont{page number in head/foot}\insertframenumber /\inserttotalframenumber
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=0.15\linewidth, right]{frame number}%
+            \ifnum\insertframenumber>0%
+            \usebeamerfont{page number in head/foot}\insertframenumber{}/\inserttotalframenumber%
             \fi
         \end{beamercolorbox}
     \end{beamercolorbox}
