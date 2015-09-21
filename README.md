@@ -1,7 +1,7 @@
-#Latex Beamer Theme of the TU Dortmund, Germany
+#Latex Beamer Theme for the TU Dortmund, Germany
 
-#WIP
+It follows the Corporate Design of the Powerpoint Templates the TU Dortmund supplies.
 
-This is planned to be the new Latex Beamer Theme of the TU Dortmund.
+Yes, it's ugly. I know.
 
-It will follow the Corporate Design and be created to match the Powerpoint Templates the TU Dortmund supplies.
+Feel free to use it. License is MIT
