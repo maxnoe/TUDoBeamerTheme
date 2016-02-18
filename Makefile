@@ -1,12 +1,18 @@
-all: build/TUDo-Beispiel.pdf
+all: build/example.pdf
 
-TeXOptions = --interaction=nonstopmode \
-			 --halt-on-error \
-			 --output-directory=build
+texoptions = \
+	     --lualatex \
+	     --interaction=nonstopmode \
+	     --halt-on-error \
+	     --output-directory=build
 
-build/TUDo-Beispiel.pdf: TUDo-Beispiel.tex *.sty | build
-	lualatex $(TeXOptions) TUDo-Beispiel.tex
-	lualatex $(TeXOptions) TUDo-Beispiel.tex
+build/example.pdf: FORCE | build
+	latexmk $(texoptions) example.tex
+
+preview: FORCE | build
+	latexmk $(texoptions) -pvc example.tex
+
+FORCE:
 
 build:
 	mkdir -p build

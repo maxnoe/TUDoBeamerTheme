@@ -1,0 +1,198 @@
+%:%%%%%%%%%%%%%%%%%%%----------------------------------------%%%%%%%%%%%%%%%%%%%%
+%-------------------   LaTeX-Beamer-Theme der TU Dortmund   -------------------%
+%%%%%%%%%%%%%%%%%%%%----------------------------------------%%%%%%%%%%%%%%%%%%%%
+
+%% Erstellt von Maximilian Nöthe <maximilian.noethe@tu-dortmund.de>
+% Version 2.0 vom 18.2.2016
+% \ProvidesPackage{tudo}[2016/02/18]
+
+%Requirements
+\RequirePackage{xcolor}
+\RequirePackage{ifluatex}
+\RequirePackage{ifxetex}
+\hypersetup{colorlinks=true, linkcolor=tugreen, urlcolor=tudark}
+
+
+\mode<presentation>
+\newif\if@showtotalframes\@showtotalframesfalse
+\DeclareOption{showtotalframes}{\@showtotalframestrue}
+\ProcessOptions
+
+\setbeamersize{text margin left=10pt, text margin right=10pt}
+
+%Settings
+\usefonttheme{professionalfonts}
+\ifluatex%
+  \RequirePackage{fontspec}
+  \setsansfont{FiraSans Light}[
+    BoldFont=FiraSans Medium,
+    BoldItalicFont=FiraSans Medium Italic,
+    ItalicFont=FiraSans Light Italic,
+  ]
+\else
+  \ifxetex
+    \RequirePackage{fontspec}
+    \setsansfont{FiraSans Light}[
+      BoldFont=FiraSans Medium,
+      BoldItalicFont=FiraSans Medium Italic,
+      ItalicFont=FiraSans Light Italic,
+    ]
+  \else
+    \RequirePackage{fira}
+  \fi
+\fi
+
+
+\setbeamertemplate{navigation symbols}{}
+
+
+%% headline
+
+\setbeamertemplate{headline}
+{%
+  \vspace*{10pt}%
+  \leavevmode
+  \begin{beamercolorbox}[
+    wd=0.5\paperwidth,
+    ht=0.08\paperheight,
+    leftskip=\beamer@leftmargin,
+    rightskip=1em,
+  ]{headline}%
+    \includegraphics[height=0.08\paperheight]{logos/tu.pdf}%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[
+    wd=0.5\paperwidth,
+    ht=0.08\paperheight,
+    leftskip=1em,
+    rightskip=\beamer@rightmargin,
+  ]{headline}%
+  \usebeamerfont{institute in head/foot}\hfill\insertshortinstitute[respectlinebreaks]
+  \end{beamercolorbox}%
+  \vskip2ex%
+  \ifnum\insertframenumber=1%
+    \vspace{0.4pt}%
+  \else%
+    \hspace{\beamer@leftmargin}%
+    \usebeamercolor{separation line}%
+    \rule{\paperwidth-\beamer@leftmargin-\beamer@rightmargin}{0.4pt}%
+  \fi
+}
+
+\setbeamertemplate{footline}
+{%
+  \ifnum\insertframenumber=1%
+  \else%
+    \leavevmode
+    \begin{beamercolorbox}[
+      wd=0.2\paperwidth,
+      ht=4ex,
+      dp=10pt,
+      leftskip=\beamer@leftmargin,
+    ]{author in head/foot}%
+      {\usebeamerfont{author in head/foot}\insertshortauthor},
+      {\usebeamerfont{date in head/foot}\insertshortdate}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[
+      wd=0.6\paperwidth,
+      ht=3ex,
+      dp=10pt,
+      center,
+    ]{section in head/foot}%
+      \ifx\insertsection\empty%
+      \else%
+        \usebeamerfont{section in head/foot}\insertsection%
+        \ifx\insertsubsection\empty
+        \else%
+          :~\usebeamerfont{subsection in head/foot}\insertsubsection%
+        \fi
+      \fi%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[
+      wd=0.2\paperwidth,
+      ht=4ex,
+      dp=10pt,
+      rightskip=\beamer@rightmargin,
+    ]{frame}%
+      \hfill\usebeamerfont{framenumber}\insertframenumber%
+      \if@showtotalframes
+        ~/~\inserttotalframenumber%
+      \fi%
+    \end{beamercolorbox}%
+  \fi%
+}
+
+% \def\maketitle{\ifbeamer@inframe\titlepage\else\frame[plain]{\titlepage}\fi}
+% \def\titlepage{\usebeamertemplate{title page}}
+\setbeamertemplate{title page}
+{
+  \ifx\inserttitlegraphi\empty%
+  \else%
+  \begin{beamercolorbox}[center, wd=\textwidth]{titlegraphic}
+    \inserttitlegraphic%
+  \end{beamercolorbox}%
+  \vspace{10pt}%
+  \fi%
+  \ifx\inserttitle\empty%
+  \else%
+  \begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{title}
+    \usebeamerfont{title}\inserttitle%
+  \end{beamercolorbox}%
+  \vspace{2ex}%
+  \fi%
+  \ifx\insertauthor\empty%
+  \else%
+  \begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{author}
+    \centering\usebeamerfont{author}\insertauthor%
+  \end{beamercolorbox}%
+  \vspace{2ex}%
+  \fi%
+  \ifx\insertdate\empty%
+  \else%
+  \begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{date}
+    \centering\usebeamerfont{date}\insertdate%
+  \end{beamercolorbox}%
+  \vspace{2ex}%
+  \fi%
+  \ifx\insertinstitute\empty%
+  \else%
+  \begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{institute}
+    \centering\usebeamerfont{institute}\insertinstitute%
+  \end{beamercolorbox}%
+  \vspace{2ex}%
+  \fi%
+}
+
+
+%% fonts
+\setbeamerfont{author}{size=\Large}
+\setbeamerfont{title}{size=\huge, series=\bfseries}
+
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
+\setbeamerfont{framenumber}{series=\bfseries}
+
+\setbeamerfont{institute}{size=\large}
+\setbeamerfont{section in head/foot}{size=\small}
+\setbeamerfont{subsection in head/foot}{size=\small}
+\setbeamerfont{institute in head/foot}{size=\large}
+
+\setbeamerfont{itemize/enumerate body}{size=\normalfont}
+\setbeamerfont{itemize/enumerate subbody}{size=\normalfont}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\normalfont}
+
+
+%% colors
+\xdefinecolor{tugreen}{RGB}{132, 186, 26}       % 0
+\colorlet{tulight}{tugreen!20!white}
+\colorlet{tudark}{tugreen!60!black}
+
+\xdefinecolor{tuorange}{RGB}{227, 105, 19}      % 3
+\xdefinecolor{tuyellow}{RGB}{242, 189, 0}       % 4
+\xdefinecolor{tucitron}{RGB}{249, 219, 0}       % 5
+
+\setbeamercolor{normal text}{fg=darkgray, bg=white}
+\setbeamercolor{palette primary}{fg=black, bg=white}
+\setbeamercolor{palette secondary}{fg=tugreen, bg=white}
+\setbeamercolor{titlelike}{fg=tugreen, bg=white}
+\setbeamercolor{item}{fg=tugreen, bg=white}
+
+\mode<all>
