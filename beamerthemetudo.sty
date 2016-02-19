@@ -18,7 +18,7 @@
 \DeclareOption{showtotalframes}{\@showtotalframestrue}
 \ProcessOptions
 
-\setbeamersize{text margin left=10pt, text margin right=10pt}
+\setbeamersize{text margin left=15pt, text margin right=15pt}
 
 %Settings
 \usefonttheme{professionalfonts}
@@ -78,6 +78,7 @@
     \usebeamercolor{separation line}%
     \rule{\paperwidth-\beamer@leftmargin-\beamer@rightmargin}{0.4pt}%
   \fi
+  \vskip2ex
 }
 
 \setbeamertemplate{footline}
@@ -167,6 +168,10 @@
 }
 
 \setbeamertemplate{itemize items}[square]
+
+\setbeamertemplate{frametitle}{%
+  \usebeamerfont{frametitle}\insertframetitle%
+}
 
 
 %% fonts
