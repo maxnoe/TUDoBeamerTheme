@@ -38,7 +38,7 @@
       ItalicFont=FiraSans Light Italic,
     ]
   \else
-    \RequirePackage{fira}
+    \RequirePackage{FiraSans}
   \fi
 \fi
 
@@ -48,21 +48,23 @@
 
 %% headline
 
+\newlength{\headerheight}
+\setlength{\headerheight}{0.08\paperheight}
 \setbeamertemplate{headline}
 {%
   \vspace*{10pt}%
   \leavevmode
   \begin{beamercolorbox}[
-    wd=0.33\paperwidth,
-    ht=0.08\paperheight,
+    wd=0.35\paperwidth,
+    ht=\headerheight,
     leftskip=\beamer@leftmargin,
     rightskip=1em,
   ]{headline}%
-    \includegraphics[height=0.08\paperheight]{logos/tu.jpg}%
+    \includegraphics[height=\headerheight]{logos/tu.jpg}%
   \end{beamercolorbox}%
   \begin{beamercolorbox}[
-    wd=0.67\paperwidth,
-    ht=0.08\paperheight,
+    wd=0.65\paperwidth,
+    ht=\headerheight,
     leftskip=1em,
     rightskip=\beamer@rightmargin,
   ]{headline}%
@@ -186,6 +188,8 @@
 \setbeamerfont{itemize/enumerate subbody}{size=\normalfont}
 \setbeamerfont{itemize/enumerate subsubbody}{size=\normalfont}
 
+\setbeamerfont{block title}{series=\bfseries}
+
 
 %% colors
 \xdefinecolor{tugreen}{RGB}{132, 184, 24}       % 0
@@ -203,8 +207,17 @@
 \setbeamercolor{alerted text}{fg=tuorange, bg=white}
 \setbeamercolor{palette primary}{fg=darkgray, bg=white}
 \setbeamercolor{palette secondary}{fg=tugreen, bg=white}
-\setbeamercolor{titlelike}{fg=tugreen, bg=white}
+
 \setbeamercolor{title}{fg=darkgray, bg=white}
+\setbeamercolor{structure}{fg=tugreen, bg=white}
+
+\setbeamercolor{frametitle}{fg=tugreen, bg=white}
+
 \setbeamercolor{item}{fg=tugreen, bg=white}
+
+\setbeamercolor{block title}{fg=white, bg=tugreen}
+\setbeamercolor{block body}{fg=darkgray, bg=tulight}
+
+\setbeamercolor{section number in toc}{fg=tugreen, bg=white}
 
 \mode<all>
