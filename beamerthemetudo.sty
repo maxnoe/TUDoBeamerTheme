@@ -29,12 +29,6 @@
     BoldItalicFont=FiraSans Medium Italic,
     ItalicFont=FiraSans Light Italic,
   ]
-  % \suppressfontnotfounderror
-  \setsansfont{Akkurat-Light}[
-    BoldFont=Akkurat Office Bold,
-    BoldItalicFont=FiraSans Medium Italic,
-    ItalicFont=FiraSans Light Italic,
-  ]%
 \else
   \ifxetex
     \RequirePackage{fontspec}
@@ -64,7 +58,7 @@
     leftskip=\beamer@leftmargin,
     rightskip=1em,
   ]{headline}%
-    \includegraphics[height=0.08\paperheight]{logos/tu.pdf}%
+    \includegraphics[height=0.08\paperheight]{logos/tu.jpg}%
   \end{beamercolorbox}%
   \begin{beamercolorbox}[
     wd=0.67\paperwidth,
@@ -95,7 +89,7 @@
       dp=10pt,
       leftskip=\beamer@leftmargin,
     ]{author in head/foot}%
-      {\usebeamerfont{author in head/foot}\insertshortauthor},
+      {\usebeamerfont{author in head/foot}\insertshortauthor} | 
       {\usebeamerfont{date in head/foot}\insertshortdate}%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[
@@ -140,10 +134,12 @@
   \fi%
   \ifx\inserttitle\empty%
   \else%
-  \begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{title}
-    \centering\usebeamerfont{title}\inserttitle%
+  \begin{beamercolorbox}[wd=\textwidth, dp=1ex]{title}
+    \textcolor{tugreen}{\rule{\textwidth}{1pt}}\\%
+    \centering\usebeamerfont{title}\inserttitle\\[-0.5\baselineskip]%
+    \textcolor{tugreen}{\rule{\textwidth}{1pt}}%
   \end{beamercolorbox}%
-  \vspace{2ex}%
+  \vspace{2ex}
   \fi%
   \ifx\insertauthor\empty%
   \else%
@@ -168,10 +164,13 @@
   \fi%
 }
 
+\setbeamertemplate{itemize items}[square]
+
 
 %% fonts
 \setbeamerfont{author}{size=\Large}
 \setbeamerfont{title}{size=\huge, series=\bfseries}
+\setbeamerfont{date}{size=\large, series=\bfseries}
 
 \setbeamerfont{frametitle}{size=\large, series=\bfseries}
 \setbeamerfont{framenumber}{series=\bfseries}
@@ -189,7 +188,7 @@
 
 
 %% colors
-\xdefinecolor{tugreen}{RGB}{132, 184, 41}       % 0
+\xdefinecolor{tugreen}{RGB}{132, 184, 24}       % 0
 \colorlet{tulight}{tugreen!20!white}
 \colorlet{tudark}{tugreen!60!black}
 
@@ -197,11 +196,15 @@
 \xdefinecolor{tuyellow}{RGB}{242, 189, 0}       % 4
 \xdefinecolor{tucitron}{RGB}{249, 219, 0}       % 5
 
+\setbeamercolor{section in head/foot}{fg=tugreen, bg=white}
+\setbeamercolor{framenumber}{fg=tugreen, bg=white}
+
 \setbeamercolor{normal text}{fg=darkgray, bg=white}
 \setbeamercolor{alerted text}{fg=tuorange, bg=white}
 \setbeamercolor{palette primary}{fg=darkgray, bg=white}
 \setbeamercolor{palette secondary}{fg=tugreen, bg=white}
 \setbeamercolor{titlelike}{fg=tugreen, bg=white}
+\setbeamercolor{title}{fg=darkgray, bg=white}
 \setbeamercolor{item}{fg=tugreen, bg=white}
 
 \mode<all>
