@@ -29,6 +29,12 @@
     BoldItalicFont=FiraSans Medium Italic,
     ItalicFont=FiraSans Light Italic,
   ]
+  % \suppressfontnotfounderror
+  \setsansfont{Akkurat-Light}[
+    BoldFont=Akkurat Office Bold,
+    BoldItalicFont=FiraSans Medium Italic,
+    ItalicFont=FiraSans Light Italic,
+  ]%
 \else
   \ifxetex
     \RequirePackage{fontspec}
@@ -183,7 +189,7 @@
 
 
 %% colors
-\xdefinecolor{tugreen}{RGB}{132, 186, 26}       % 0
+\xdefinecolor{tugreen}{RGB}{132, 184, 41}       % 0
 \colorlet{tulight}{tugreen!20!white}
 \colorlet{tudark}{tugreen!60!black}
 
