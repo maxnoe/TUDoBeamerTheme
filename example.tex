@@ -4,10 +4,18 @@
 \usefonttheme[onlymath]{serif}
 \usetheme[showtotalframes]{tudo}
 
-% Sprachumgebung
-% \usepackage{polyglossia}
-% \setmainlanguage{german}
-
+\ifluatex
+  \usepackage{polyglossia}
+  \setmainlanguage{german}
+\else
+  \ifxetex
+    \usepackage{polyglossia}
+    \setmainlanguage{german}
+  \else
+    \usepackage[german]{babel}
+  \fi
+\fi
+    
 
 % Mathematik
 \usepackage{amsmath}
@@ -15,16 +23,6 @@
 \usepackage{mathtools}
 \usepackage{cancel}
 
-% \usepackage[
-%   math-style=ISO,
-%   bold-style=ISO,
-%   sans-style=italic,
-%   nabla=upright,
-%   partial=upright,
-% ]{unicode-math}
-% \setmathfont{Latin Modern Math}
-
-%Links
 \usepackage{hyperref}
 \usepackage{bookmark}
 
@@ -49,10 +47,13 @@
 \begin{frame}{Hinweise}
   Zu diesem Theme
   \begin{itemize}
-    \item Die .sty-Files müssen im gleichen Verzeichnis wie die .tex liegen
-    \item Das Logo in logos/
-    \item alternativ können die Dateien an einen beliebigen Ort gelegt werden,
-    dies erfordert aber, dass dieser Ordner zu den \texttt{TEXINPUTS} hinzugefügt wird.
+    \item Zur Installation des Themese muss mindestens die Datei \texttt{beamerthemetudo.sty} und der Ordner \texttt{logos} in einen Ordner verschoben werden, in dem \LaTeX nach Paketen sucht.
+      Dies können sein
+      \begin{itemize}
+        \item \texttt{TEXMFHOME/tex/latex/tudobeamertheme}. Den Wert von \texttt{TEXMFHOME} bekommen sie über \texttt{kpsewhich --var-value TEXMFHOME}, üblicherweise ist dies \texttt{\$HOME/texmf}.
+        \item Der gleiche Ordner in dem Sie ihr Dokument kompilieren
+        \item Ein beliebiger Ordner, der in der Variablen \texttt{TEXINPUTS} enthalten ist.
+      \end{itemize}
   \end{itemize}
   Allgemein zu Beamer und Latex:
   \begin{itemize}
