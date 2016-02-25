@@ -11,7 +11,7 @@
 \RequirePackage{ifluatex}
 \RequirePackage{ifxetex}
 \RequirePackage{calc}
-\hypersetup{colorlinks=true, linkcolor=tugreen, urlcolor=tudark}
+\hypersetup{colorlinks=true, linkcolor=darkgray, urlcolor=tudark}
 
 
 \mode<presentation>
@@ -143,7 +143,7 @@
     \centering\usebeamerfont{title}\inserttitle\\[-0.5\baselineskip]%
     \textcolor{tugreen}{\rule{\textwidth}{1pt}}%
   \end{beamercolorbox}%
-  \vspace{1ex}
+  \vspace{\fill}
   \fi%
   \ifx\insertauthor\empty%
   \else%
@@ -164,8 +164,8 @@
   \begin{beamercolorbox}[leftskip=0.2\textwidth, rightskip=0.2\textwidth, wd=\textwidth]{institute}
     \centering\usebeamerfont{institute}\insertinstitute%
   \end{beamercolorbox}%
-  \vspace{1ex}%
   \fi%
+  \vspace{\fill}
 }
 
 \setbeamertemplate{itemize items}[square]
@@ -195,6 +195,7 @@
 \setbeamerfont{itemize/enumerate subsubbody}{size=\normalfont}
 
 \setbeamerfont{block title}{series=\bfseries}
+\setbeamerfont{section in toc}{series=\bfseries}
 
 
 %% colors
@@ -225,5 +226,6 @@
 \setbeamercolor{block body}{fg=darkgray, bg=tulight}
 
 \setbeamercolor{section number in toc}{fg=tugreen, bg=white}
+\setbeamercolor{section in toc}{fg=darkgray, bg=white}
 
 \mode<all>
