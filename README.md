@@ -1,4 +1,4 @@
-#LaTeX Beamer Theme for the TU Dortmund, Germany
+# LaTeX Beamer Theme for the TU Dortmund, Germany
 
 It follows the Corporate Design of the Powerpoint Templates the TU Dortmund supplies.
 
