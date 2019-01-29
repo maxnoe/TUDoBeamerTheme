@@ -1,42 +1,40 @@
+% This example is meant to be compiled with lualatex or xelatex
+% The theme itself also supports pdflatex
 \PassOptionsToPackage{unicode}{hyperref}
-\documentclass[aspectratio=1610, professionalfonts, 9pt]{beamer}
+\documentclass[aspectratio=1610, 9pt]{beamer}
 
-\usefonttheme[onlymath]{serif}
-\usetheme[showtotalframes]{tudo}
+% Load packages you need here
+\usepackage{polyglossia}
+\setmainlanguage{german}
 
-\ifluatex
-  \usepackage{polyglossia}
-  \setmainlanguage{german}
-\else
-  \ifxetex
-    \usepackage{polyglossia}
-    \setmainlanguage{german}
-  \else
-    \usepackage[german]{babel}
-  \fi
-\fi
+\usepackage{csquotes}
     
 
-% Mathematik
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
-\usepackage{cancel}
 
 \usepackage{hyperref}
 \usepackage{bookmark}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%-------------Hier Titel/Autor/Grafik/Lehrstuhl eintragen--------------%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% load the theme after all packages
 
-%Titel:
+\usetheme[
+  showtotalframes, % show total number of frames in the footline
+]{tudo}
+
+% Put settings here, like
+\unimathsetup{
+  math-style=ISO,
+  bold-style=ISO,
+  nabla=upright,
+  partial=upright,
+  mathrm=sym,
+}
+
 \title{\LaTeX-Beamer-Theme der TU~Dortmund}
-%Autor
 \author[M.~Nöthe]{Maximilian Nöthe}
-%Lehrstuhl/Fakultät
-\institute[Experimental Physics 5]{Names des Lehrstuhls \\  Name der Fakultät}
-%Titelgrafik 
+\institute[Kurzform Lehrstuhl]{Names des Lehrstuhls \\  Name der Fakultät}
 \titlegraphic{\includegraphics[width=0.7\textwidth]{images/tudo-title-2.jpg}}
 
 
@@ -55,6 +53,11 @@
         \item Ein beliebiger Ordner, der in der Variablen \texttt{TEXINPUTS} enthalten ist.
       \end{itemize}
   \end{itemize}
+  
+  Oneliner zur Installation:\\
+  \texttt{\footnotesize\$ cd `kpsewhich --var-value TEXMFHOME` \&\& git clone https://github.com/maxnoe/tudobeamertheme}
+
+  \medskip
   Allgemein zu Beamer und Latex:
   \begin{itemize}
     \item Umfangreicher \LaTeX-Kurs von PeP et Al. \\
@@ -64,34 +67,27 @@
   \end{itemize}
 \end{frame}
 
+\begin{frame}{Einführung}
+  \tableofcontents
+\end{frame}
+
+\section{Fonts}
 \begin{frame}
-    \frametitle{Einführung}
-    \tableofcontents[pausesections]
+  Der Font der im Corporate Design der TU Dortmund vorgesehen ist,
+  ist \enquote{Akkurat Office}.
+
+  Falls dieser nicht verfügbar ist, wird als Alternative \enquote{Fira Sans}
+  verwendet.
+
+  Für Mathematik wird bei Verwendung von \texttt{xelatex} oder \texttt{lualatex} der Font \enquote{Fira Math} verwendet.
 \end{frame}
 
-\section{Blindtext}
-\begin{frame}
-	\frametitle{Hier steht eine lange, zweizeilige Headline
-		\newline gefolgt von einem Blindtext}
-Dieser Text dient nur zur Veranschaulichung des Textsatzes. Niemand sollte jemals, aus keinem noch so gutem Grund, so viel Text auf eine Folie packen.
-
-Dies ist ein Blindtext. Dieser Text ist nicht dafür vorgesehen, den Betrachter in die Welt der Dunkelheit zu führen, sondern dafür, einfach etwas Leeres mit etwas Inhaltlosem zu füllen.
-
-Dies ist ein Blindtext. Dieser Text ist nicht dafür vorgesehen, den Betrachter in die Welt der Dunkelheit zu führen, sondern dafür, einfach etwas Leeres mit etwas Inhaltlosem zu füllen.
-
-Dies ist ein Blindtext. Dieser Text ist nicht dafür vorgesehen, den Betrachter in die Welt der Dunkelheit zu führen, sondern dafür, einfach etwas Leeres mit etwas Inhaltlosem zu füllen.
-\end{frame}
-
-\begin{frame}{title}
-  \begin{enumerate}
-    \item test
-    \item test
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}{title}
-  \begin{block}{title}
-    ANlsnldas dkmadföonslkadm x
-  \end{block}
+\begin{frame}{Mathe}
+  \begin{align*}
+    \nabla \cdot \symbf{B} &= 0 &
+    \nabla \cdot \symbf{E} &= \frac{ρ}{ε_0} \\
+    \nabla \times \symbf{E} &= -\partial_t \symbf{B} &
+    \nabla \times \symbf{B} &= μ_0 \symbf{j} + μ_0 ε_0 \partial_t \symbf{E} &
+  \end{align*}
 \end{frame}
 \end{document}

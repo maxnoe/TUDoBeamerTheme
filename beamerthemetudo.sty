@@ -1,10 +1,4 @@
-%:%%%%%%%%%%%%%%%%%%%----------------------------------------%%%%%%%%%%%%%%%%%%%%
-%-------------------   LaTeX-Beamer-Theme der TU Dortmund   -------------------%
-%%%%%%%%%%%%%%%%%%%%----------------------------------------%%%%%%%%%%%%%%%%%%%%
-
-%% Erstellt von Maximilian Nöthe <maximilian.noethe@tu-dortmund.de>
-% Version 2.0 vom 18.2.2016
-% \ProvidesPackage{tudo}[2016/02/18]
+\ProvidesPackage{beamerthemetudo}[2019/01/29]
 
 %Requirements
 \RequirePackage{xcolor}
@@ -20,35 +14,44 @@
 \ProcessOptions
 
 \setbeamersize{text margin left=15pt, text margin right=15pt}
-
-%Settings
 \usefonttheme{professionalfonts}
+
+
+% If xelatex or lualatex, use fontspec to set fonts
+\newif\if@fontspec\@fontspecfalse
 \ifluatex%
-  \RequirePackage{fontspec}
-  \setsansfont{FiraSans Light}[
-    BoldFont=FiraSans Medium,
-    BoldItalicFont=FiraSans Medium Italic,
-    ItalicFont=FiraSans Light Italic,
-  ]
+  \@fontspectrue
 \else
   \ifxetex
-    \RequirePackage{fontspec}
-    \setsansfont{FiraSans-Light.otf}[
-      BoldFont=FiraSans-Medium.otf,
-      BoldItalicFont=FiraSans-MediumItalic.otf,
-      ItalicFont=FiraSans-LightItalic.otf,
-    ]
-  \else
-  \RequirePackage[light]{FiraSans}
+    \@fontspectrue
   \fi
 \fi
 
+\if@fontspec
+  \RequirePackage{fontspec}
+  \RequirePackage{unicode-math}
+  % Prefer Akkurat Office (TU Corporate Design Font), Fallback to Fira Sans
+  \IfFontExistsTF{Akkurat Light Office}{
+    \setsansfont{Akkurat Light Office}[
+      Scale=MatchLowercase,
+      BoldFont=Akkurat Office,
+    ]
+  }{
+    \setsansfont{FiraSans Light}[
+      Scale=MatchLowercase,
+      BoldFont=FiraSans Medium,
+    ]
+  }
+  \setmonofont{Fira Mono}[Scale=MatchLowercase]
+  \setmathfont{Fira Math}[Scale=MatchLowercase]
+\else
+  \usepackage{FiraSans} 
+\fi
 
 \setbeamertemplate{navigation symbols}{}
 
 
 %% headline
-
 \newlength{\headerheight}
 \setlength{\headerheight}{0.08\paperheight}
 \setbeamertemplate{headline}
@@ -125,8 +128,6 @@
   \fi%
 }
 
-% \def\maketitle{\ifbeamer@inframe\titlepage\else\frame[plain]{\titlepage}\fi}
-% \def\titlepage{\usebeamertemplate{title page}}
 \setbeamertemplate{title page}
 {
   \ifx\inserttitlegraphi\empty%
