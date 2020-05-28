@@ -138,13 +138,16 @@
   \vspace{10pt}%
   \fi%
   \ifx\inserttitle\empty\else%
-  \begin{beamercolorbox}[wd=\textwidth, dp=1ex]{title}
+  \begin{beamercolorbox}[center, wd=\textwidth]{title}
     \textcolor{tugreen}{\rule{\textwidth}{1pt}}\\[0.5\baselineskip]%
-    \centering\usebeamerfont{title}\inserttitle%
-    \ifx\insertsubtitle\empty\else%
-      \centering\usebeamerfont{subtitle}\newline\insertsubtitle\newline%
+    \usebeamerfont{title}\inserttitle
+    \ifx\insertsubtitle\empty%
+      \newline%
+    \else%
+      \\[0.5\baselineskip]%
+      \usebeamerfont{subtitle}%
+      \insertsubtitle\newline%
     \fi%
-    \vspace{-0.5\baselineskip}%
     \textcolor{tugreen}{\rule{\textwidth}{1pt}}%
   \end{beamercolorbox}%
   \vspace{\fill}
