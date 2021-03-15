@@ -87,22 +87,33 @@
   \vskip2ex
 }
 
+
+\newlength{\footerleftwidth}
+\setlength{\footerleftwidth}{0.2\paperwidth}
+\newlength{\footercenterwidth}
+\setlength{\footercenterwidth}{0.6\paperwidth}
+\newlength{\footerrightwidth}
+\setlength{\footerrightwidth}{0.2\paperwidth}
+
 \setbeamertemplate{footline}
 {%
   \ifnum\insertframenumber=1%
   \else%
     \leavevmode
     \begin{beamercolorbox}[
-      wd=0.2\paperwidth,
+      wd=\footerleftwidth,
       ht=4ex,
       dp=10pt,
       leftskip=\beamer@leftmargin,
     ]{author in head/foot}%
-      {\usebeamerfont{author in head/foot}\insertshortauthor} | 
-      {\usebeamerfont{date in head/foot}\insertshortdate}%
+      {\usebeamerfont{author in head/foot}\insertshortauthor}%
+      \ifx\beamer@shortdate\empty%
+      \else%
+      | {\usebeamerfont{date in head/foot}\insertshortdate}%
+      \fi%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[
-      wd=0.6\paperwidth,
+      wd=\footercenterwidth,
       ht=3ex,
       dp=10pt,
       center,
@@ -110,21 +121,22 @@
       \ifx\insertsection\empty%
       \else%
         \usebeamerfont{section in head/foot}\insertsection%
-        \ifx\insertsubsection\empty
+        \ifx\insertsubsection\empty%
         \else%
           :~\usebeamerfont{subsection in head/foot}\insertsubsection%
         \fi
       \fi%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[
-      wd=0.2\paperwidth,
+      wd=\footerrightwidth,
       ht=4ex,
       dp=10pt,
       rightskip=\beamer@rightmargin,
     ]{frame}%
-      \hfill\usebeamerfont{framenumber}\insertframenumber%
-      \if@showtotalframes
-        ~/~\inserttotalframenumber%
+      \raggedleft%
+      \usebeamerfont{framenumber}\insertframenumber%
+      \if@showtotalframes%
+      ~/~\inserttotalframenumber%
       \fi%
     \end{beamercolorbox}%
   \fi%
