@@ -107,9 +107,8 @@
       leftskip=\beamer@leftmargin,
     ]{author in head/foot}%
       {\usebeamerfont{author in head/foot}\insertshortauthor}%
-      \ifx\beamer@shortdate\empty%
-      \else%
-      | {\usebeamerfont{date in head/foot}\insertshortdate}%
+      \ifx\beamer@shortdate\empty\else%
+      ~|~{\usebeamerfont{date in head/foot}\insertshortdate}%
       \fi%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[
