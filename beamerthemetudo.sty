@@ -5,7 +5,6 @@
 \RequirePackage{ifluatex}
 \RequirePackage{ifxetex}
 \RequirePackage{calc}
-\hypersetup{colorlinks=true, linkcolor=darkgray, urlcolor=tudark}
 
 
 \mode<presentation>
@@ -231,6 +230,7 @@
 \colorlet{tulight}{tugreen!20!white}
 \colorlet{tudark}{tugreen!60!black}
 
+
 \xdefinecolor{tuorange}{RGB}{227, 105, 19}      % 3
 \xdefinecolor{tuyellow}{RGB}{242, 189, 0}       % 4
 \xdefinecolor{tucitron}{RGB}{249, 219, 0}       % 5
@@ -239,9 +239,11 @@
 \if@dark%
   \colorlet{maincolor}{darkmode}% background color
   \colorlet{fgcolor}{white}% foreground color, e.g. for text
+  \hypersetup{colorlinks=true, linkcolor=lightgray, urlcolor=tugreen!80!white}
 \else%
   \colorlet{maincolor}{white}%
   \colorlet{fgcolor}{darkgray}%
+  \hypersetup{colorlinks=true, linkcolor=darkgray, urlcolor=tudark}
 \fi
 
 \setbeamercolor{section in head/foot}{fg=tugreen, bg=maincolor}
