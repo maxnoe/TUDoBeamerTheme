@@ -5,12 +5,14 @@
 \RequirePackage{ifluatex}
 \RequirePackage{ifxetex}
 \RequirePackage{calc}
-\hypersetup{colorlinks=true, linkcolor=darkgray, urlcolor=tudark}
 
 
 \mode<presentation>
 \newif\if@showtotalframes\@showtotalframesfalse
 \DeclareOption{showtotalframes}{\@showtotalframestrue}
+
+\newif\if@dark\@darkfalse
+\DeclareOption{dark}{\@darktrue}
 \ProcessOptions
 
 \setbeamersize{text margin left=15pt, text margin right=15pt}
@@ -47,7 +49,7 @@
   \setmonofont{Fira Mono}[Scale=MatchLowercase]
   \setmathfont{Fira Math}[Scale=MatchLowercase]
 \else
-  \usepackage{FiraSans} 
+  \usepackage{FiraSans}
 \fi
 
 \setbeamertemplate{navigation symbols}{}
@@ -66,7 +68,11 @@
     leftskip=\beamer@leftmargin,
     rightskip=1em,
   ]{headline}%
-    \includegraphics[height=\headerheight]{logos/tu.pdf}%
+    \if@dark%
+      \includegraphics[height=\headerheight]{logos/tu_light.pdf}%
+    \else%
+      \includegraphics[height=\headerheight]{logos/tu.pdf}%
+    \fi%
   \end{beamercolorbox}%
   \begin{beamercolorbox}[
     wd=0.65\paperwidth,
@@ -219,33 +225,46 @@
 
 
 %% colors
+\xdefinecolor{darkmode}{HTML}{3a3d41}
 \xdefinecolor{tugreen}{RGB}{132, 184, 25}       % 0
 \colorlet{tulight}{tugreen!20!white}
 \colorlet{tudark}{tugreen!60!black}
+
 
 \xdefinecolor{tuorange}{RGB}{227, 105, 19}      % 3
 \xdefinecolor{tuyellow}{RGB}{242, 189, 0}       % 4
 \xdefinecolor{tucitron}{RGB}{249, 219, 0}       % 5
 
-\setbeamercolor{section in head/foot}{fg=tugreen, bg=white}
-\setbeamercolor{framenumber}{fg=tugreen, bg=white}
+% selection of the main colors for the light/dark themes
+\if@dark%
+  \colorlet{maincolor}{darkmode}% background color
+  \colorlet{fgcolor}{white}% foreground color, e.g. for text
+  \hypersetup{colorlinks=true, linkcolor=lightgray, urlcolor=tugreen!80!white}
+\else%
+  \colorlet{maincolor}{white}%
+  \colorlet{fgcolor}{darkgray}%
+  \hypersetup{colorlinks=true, linkcolor=darkgray, urlcolor=tudark}
+\fi
 
-\setbeamercolor{normal text}{fg=darkgray, bg=white}
-\setbeamercolor{alerted text}{fg=tuorange, bg=white}
-\setbeamercolor{palette primary}{fg=darkgray, bg=white}
-\setbeamercolor{palette secondary}{fg=tugreen, bg=white}
+\setbeamercolor{section in head/foot}{fg=tugreen, bg=maincolor}
+\setbeamercolor{framenumber}{fg=tugreen, bg=maincolor}
 
-\setbeamercolor{title}{fg=darkgray, bg=white}
-\setbeamercolor{structure}{fg=tugreen, bg=white}
+\setbeamercolor{normal text}{fg=fgcolor, bg=maincolor}
+\setbeamercolor{alerted text}{fg=tuorange, bg=maincolor}
+\setbeamercolor{palette primary}{fg=fgcolor, bg=maincolor}
+\setbeamercolor{palette secondary}{fg=tugreen, bg=maincolor}
 
-\setbeamercolor{frametitle}{fg=tugreen, bg=white}
+\setbeamercolor{title}{fg=fgcolor, bg=maincolor}
+\setbeamercolor{structure}{fg=tugreen, bg=maincolor}
 
-\setbeamercolor{item}{fg=tugreen, bg=white}
+\setbeamercolor{frametitle}{fg=tugreen, bg=maincolor}
 
-\setbeamercolor{block title}{fg=white, bg=tugreen}
-\setbeamercolor{block body}{fg=darkgray, bg=tulight}
+\setbeamercolor{item}{fg=tugreen, bg=maincolor}
 
-\setbeamercolor{section number in toc}{fg=tugreen, bg=white}
-\setbeamercolor{section in toc}{fg=darkgray, bg=white}
+\setbeamercolor{block title}{fg=maincolor, bg=tugreen}
+\setbeamercolor{block body}{fg=fgcolor, bg=tulight}
+
+\setbeamercolor{section number in toc}{fg=tugreen, bg=maincolor}
+\setbeamercolor{section in toc}{fg=fgcolor, bg=maincolor}
 
 \mode<all>
