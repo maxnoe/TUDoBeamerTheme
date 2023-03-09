@@ -99,7 +99,7 @@
 \newlength{\footercenterwidth}
 \setlength{\footercenterwidth}{0.6\paperwidth}
 \newlength{\footerrightwidth}
-\setlength{\footerrightwidth}{0.2\paperwidth}
+\setlength{\footerrightwidth}{0.2\paperwidth - \beamer@rightmargin}
 
 \setbeamertemplate{footline}
 {%
@@ -136,7 +136,6 @@
       wd=\footerrightwidth,
       ht=4ex,
       dp=10pt,
-      rightskip=\beamer@rightmargin,
     ]{frame}%
       \raggedleft%
       \usebeamerfont{framenumber}\insertframenumber%
