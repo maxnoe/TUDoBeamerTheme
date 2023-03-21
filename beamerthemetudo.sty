@@ -18,6 +18,9 @@
 \setbeamersize{text margin left=15pt, text margin right=15pt}
 \usefonttheme{professionalfonts}
 
+% Adds an institute logo to the header
+\newcommand*\theinstitutelogo{}
+\newcommand*\institutelogo[1]{\renewcommand\theinstitutelogo{#1}}
 
 % If xelatex or lualatex, use fontspec to set fonts
 \newif\if@fontspec\@fontspecfalse
@@ -80,7 +83,11 @@
     leftskip=1em,
     rightskip=\beamer@rightmargin,
   ]{headline}%
-  \usebeamerfont{institute in head/foot}\hfill\insertshortinstitute[respectlinebreaks]
+    \ifx\theinstitutelogo\empty
+      \usebeamerfont{institute in head/foot}\hfill\insertshortinstitute[respectlinebreaks]
+    \else%
+      \hfill\theinstitutelogo
+    \fi%
   \end{beamercolorbox}%
   \vskip2ex%
   \ifnum\insertframenumber=1%
