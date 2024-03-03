@@ -18,4 +18,4 @@ build:
 	mkdir -p build
 
 clean:
-	rm -r build
+	rm -rf build
