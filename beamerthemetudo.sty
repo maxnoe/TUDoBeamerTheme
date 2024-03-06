@@ -11,6 +11,15 @@
 \newif\if@showtotalframes\@showtotalframesfalse
 \DeclareOption{showtotalframes}{\@showtotalframestrue}
 
+\newif\if@showframes\@showframesfalse
+\DeclareOption{showframes}{\@showframestrue}
+
+\newif\if@showappendixframes\@showappendixframesfalse
+\DeclareOption{showappendixframes}{\@showappendixframestrue}
+
+\newcounter{insideappendix}
+\newcommand*\appendixfootline{\section{}\setcounter{insideappendix}{1}}
+
 \newif\if@dark\@darkfalse
 \DeclareOption{dark}{\@darktrue}
 \ProcessOptions
@@ -104,7 +113,50 @@
 
 \setbeamertemplate{footline}
 {%
-  \ifnum\insertframenumber=1%
+  \ifnum\theinsideappendix=0%
+    \ifnum\insertframenumber=1%
+    \else%
+      \leavevmode%
+      \begin{beamercolorbox}[
+        wd=\footerleftwidth,
+        ht=4ex,
+        dp=10pt,
+        leftskip=\beamer@leftmargin,
+      ]{author in head/foot}%
+        {\usebeamerfont{author in head/foot}\insertshortauthor}%
+        \ifx\beamer@shortdate\empty\else%
+        ~|~{\usebeamerfont{date in head/foot}\insertshortdate}%
+        \fi%
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[
+        wd=\footercenterwidth,
+        ht=3ex,
+        dp=10pt,
+        center,
+      ]{section in head/foot}%
+        \ifx\insertsection\empty%
+        \else%
+          \usebeamerfont{section in head/foot}\insertsection%
+          \ifx\insertsubsection\empty%
+          \else%
+            :~\usebeamerfont{subsection in head/foot}\insertsubsection%
+          \fi
+        \fi%
+      \end{beamercolorbox}%
+      \begin{beamercolorbox}[
+        wd=\footerrightwidth,
+        ht=4ex,
+        dp=10pt,
+      ]{frame}%
+        \if@showframes%
+          \raggedleft%
+          \usebeamerfont{framenumber}\insertframenumber%
+          \if@showtotalframes%
+          ~/~\inserttotalframenumber%
+          \fi%
+        \fi%
+      \end{beamercolorbox}%
+    \fi%
   \else%
     \leavevmode%
     \begin{beamercolorbox}[
@@ -138,10 +190,12 @@
       ht=4ex,
       dp=10pt,
     ]{frame}%
-      \raggedleft%
-      \usebeamerfont{framenumber}\insertframenumber%
-      \if@showtotalframes%
-      ~/~\inserttotalframenumber%
+      \if@showappendixframes%
+        \raggedleft%
+        \usebeamerfont{framenumber}\insertframenumber%
+        \if@showtotalframes%
+        ~/~\inserttotalframenumber%
+        \fi%
       \fi%
     \end{beamercolorbox}%
   \fi%

@@ -16,10 +16,14 @@
 \usepackage{hyperref}
 \usepackage{bookmark}
 
+\usepackage{appendixnumberbeamer}
+
 % load the theme after all packages
 
 \usetheme[
   showtotalframes, % show total number of frames in the footline
+  showframes, % show number of frames in the footline
+  showappendixframes, % show number of frames in the footline of the appendix
   % dark, % optional dark theme, uncomment to use
 ]{tudo}
 
@@ -90,5 +94,16 @@
     \nabla \times \symbf{E} &= -\partial_t \symbf{B} &
     \nabla \times \symbf{B} &= μ_0 \symbf{j} + μ_0 ε_0 \partial_t \symbf{E} &
   \end{align*}
+\end{frame}
+
+\appendix
+\appendixfootline
+
+\begin{frame}{Appendix}
+  This is the first appendix page.
+\end{frame}
+
+\begin{frame}{Appendix}
+  This is the second appendix page.
 \end{frame}
 \end{document}
